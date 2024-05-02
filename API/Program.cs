@@ -16,10 +16,11 @@ var app = builder.Build();
 app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseStatusCodePagesWithRedirects("/errors/{0}");
-
+if (app.Environment.IsDevelopment())
+{
 app.UseSwagger();
 app.UseSwaggerUI(); 
-
+}
 
 app.UseStaticFiles();
 
